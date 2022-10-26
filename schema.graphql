@@ -1,0 +1,16 @@
+type Stake @entity {
+  id: ID!
+  stakeId: BigInt! # uint256
+  amountStaked: BigInt! # uint256
+  finalReward: BigInt! # uint256
+  stakerAddress: Bytes! # address
+  deadline: BigInt! # uint256
+  payed: Boolean!
+}
+type Staker @entity {
+  id: ID!
+  address: Bytes! # address
+  totalStaked: BigInt! # uint256
+  totalPayed: BigInt! # uint256
+  total: BigInt! # uint256
+}

@@ -1,7 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-node_modules*
-build*
 # dependencies
 /node_modules
 /.pnp
@@ -27,6 +25,11 @@ npm-debug.log*
 yarn.lock*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json*
 
-coldstakingmumbai/node_modules
-coldstakingmumbai/build
+/hardhat/out
+/hardhat/node_modules
+/hardhat/yarn.lock
+/hardhat/package-lock.json
+
+thegraph/node_modules

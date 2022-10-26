@@ -1,0 +1,30 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: ColdStaking
+    network: mumbai
+    source:
+      address: "0xedbdb350cBd23b2A81Ff7bD499f3174CA86e2881"
+      abi: ColdStaking
+      startBlock: 28810933
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - NewStake
+        - OwnershipTransferred
+        - StakePaid
+      abis:
+        - name: ColdStaking
+          file: ./abis/ColdStaking.json
+      eventHandlers:
+        - event: NewStake(uint256,indexed address,uint256,uint256)
+          handler: handleNewStake
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: StakePaid(uint256,indexed address,uint256,uint256)
+          handler: handleStakePaid
+      file: ./src/cold-staking.ts
