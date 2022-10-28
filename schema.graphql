@@ -14,3 +14,7 @@ type Staker @entity {
   totalPayed: BigInt! # uint256
   total: BigInt! # uint256
 }
+type Stablecoin @entity {
+  id: ID!
+  accepted: Boolean!
+}

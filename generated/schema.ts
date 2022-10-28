@@ -164,3 +164,44 @@ export class Staker extends Entity {
     this.set("total", Value.fromBigInt(value));
   }
 }
+
+export class Stablecoin extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save Stablecoin entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type Stablecoin must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("Stablecoin", id.toString(), this);
+    }
+  }
+
+  static load(id: string): Stablecoin | null {
+    return changetype<Stablecoin | null>(store.get("Stablecoin", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get accepted(): boolean {
+    let value = this.get("accepted");
+    return value!.toBoolean();
+  }
+
+  set accepted(value: boolean) {
+    this.set("accepted", Value.fromBoolean(value));
+  }
+}

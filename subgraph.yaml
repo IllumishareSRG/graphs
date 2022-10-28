@@ -28,3 +28,24 @@ dataSources:
         - event: StakePaid(uint256,indexed address,uint256,uint256)
           handler: handleStakePaid
       file: ./src/cold-staking.ts
+  - kind: ethereum
+    name: GoldList
+    network: mumbai
+    source:
+      address: "0xb16d182897c8AF9f7d21076e7eb116742f5DCF56"
+      abi: GoldList
+      startBlock: 28859310
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - AddedStableCoin
+        - RemovedStableCoin
+      abis:
+        - name: GoldList
+          file: ./abis/GoldList.json
+      eventHandlers:
+        - event: AddedStableCoin(address)
+          handler: handleStableCoinAdded
+      file: ./src/gold-list.ts
