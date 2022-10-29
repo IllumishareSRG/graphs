@@ -6,9 +6,9 @@ dataSources:
     name: ColdStaking
     network: mumbai
     source:
-      address: "0xedbdb350cBd23b2A81Ff7bD499f3174CA86e2881"
+      address: "0x7f3ca1e3fa5d73ff19d1642d4ce92938f5b03265"
       abi: ColdStaking
-      startBlock: 28810933
+      startBlock: 28862901
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
