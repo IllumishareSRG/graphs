@@ -6,9 +6,9 @@ dataSources:
     name: ColdStaking
     network: mumbai
     source:
-      address: "0x7f3ca1e3fa5d73ff19d1642d4ce92938f5b03265"
+      address: "0xeFde50464566052223fef84D686e5a1da24a6D4E"
       abi: ColdStaking
-      startBlock: 28862901
+      startBlock: 28909358
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -32,9 +32,9 @@ dataSources:
     name: GoldList
     network: mumbai
     source:
-      address: "0xb16d182897c8AF9f7d21076e7eb116742f5DCF56"
+      address: "0x855478B6AEeaE3012e0648f84A10aAF9FC64c136"
       abi: GoldList
-      startBlock: 28859310
+      startBlock: 28909398
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -48,4 +48,6 @@ dataSources:
       eventHandlers:
         - event: AddedStableCoin(address)
           handler: handleStableCoinAdded
+        - event: RemovedStableCoin(address)
+          handler: handleStableCoinRemoved
       file: ./src/gold-list.ts
