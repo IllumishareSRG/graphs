@@ -6,9 +6,9 @@ dataSources:
     name: ColdStaking
     network: mumbai
     source:
-      address: "0xeFde50464566052223fef84D686e5a1da24a6D4E"
+      address: "0x2D7D4Ec919C5c642F040b820ed4F05dCd40b2892"
       abi: ColdStaking
-      startBlock: 28909358
+      startBlock: 32014352
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -32,9 +32,9 @@ dataSources:
     name: GoldList
     network: mumbai
     source:
-      address: "0x1390746a374ED3c7e38eb5D099ef9D6Ed4cA457C"
+      address: "0x2D7D4Ec919C5c642F040b820ed4F05dCd40b2892"
       abi: GoldList
-      startBlock: 29134523
+      startBlock: 31884199
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6

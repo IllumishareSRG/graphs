@@ -5,6 +5,7 @@ import {
   RemovedStableCoin
 } from "../generated/GoldList/GoldList"
 import { Stablecoin } from "../generated/schema"
+import { store } from '@graphprotocol/graph-ts'
 
 export function handleStableCoinAdded(event: AddedStableCoin): void {
   // Entities can be loaded from the store using a string ID; this ID
@@ -43,11 +44,6 @@ export function handleStableCoinAdded(event: AddedStableCoin): void {
 export function handleStableCoinRemoved(event: RemovedStableCoin): void {
   // Entities can be loaded from the store using a string ID; this ID
   // needs to be unique across all entities of the same type
-  let stablecoin = Stablecoin.load(event.params.stableCoinAddress.toHex())
-  // Entities only exist after they have been saved to the store;
-  // `null` checks allow to create entities on demand
-  if (stablecoin) {
-    stablecoin.accepted = false;
-    stablecoin.save();
-  }
+  store.remove('Stablecoin', event.params.stableCoinAddress.toHex())
+
 }

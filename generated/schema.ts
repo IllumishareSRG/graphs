@@ -163,6 +163,15 @@ export class Staker extends Entity {
   set total(value: BigInt) {
     this.set("total", Value.fromBigInt(value));
   }
+
+  get stakes(): Array<string> {
+    let value = this.get("stakes");
+    return value!.toStringArray();
+  }
+
+  set stakes(value: Array<string>) {
+    this.set("stakes", Value.fromStringArray(value));
+  }
 }
 
 export class Stablecoin extends Entity {

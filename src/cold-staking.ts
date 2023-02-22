@@ -23,6 +23,7 @@ export function handleNewStake(event: NewStake): void {
   // stake fields can be set based on event parameters
   stake.stakeId = event.params.stakeId
   stake.stakerAddress = event.params.stakerAddress
+
   stake.amountStaked = structStake.getAmountStaked()
   stake.finalReward = structStake.getFinalReward()
   stake.deadline = structStake.getDeadline()
@@ -42,7 +43,9 @@ export function handleNewStake(event: NewStake): void {
   staker.address = event.params.stakerAddress;
   staker.total = staker.total + stake.amountStaked;
   staker.totalStaked = staker.totalStaked + stake.amountStaked;
-
+  //let stakes = staker.stakes;
+  //stakes.push(stake);
+  //staker.stakes = stakes;
   staker.save();
   // Note: If a handler doesn't require existing field values, it is faster
   // _not_ to load the stake from the store. Instead, create it fresh with
